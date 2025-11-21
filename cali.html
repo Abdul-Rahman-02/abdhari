@@ -1,29 +1,62 @@
-# Simple Calculator in Python
+import math
 
-def calculator():
-    print("Select operation:")
-    print("1. Add")
-    print("2. Subtract")
-    print("3. Multiply")
-    print("4. Divide")
+def scientific_calculator():
+    print("=== Scientific Calculator ===")
+    print("Operations:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Power (x^y)")
+    print("6. Square Root")
+    print("7. Sine")
+    print("8. Cosine")
+    print("9. Tangent")
+    print("10. Logarithm (base 10)")
+    print("11. Natural Log (ln)")
+    print("0. Exit")
 
-    choice = input("Enter choice (1/2/3/4): ")
+    while True:
+        op = int(input("\nSelect operation: "))
 
-    num1 = float(input("Enter first number: "))
-    num2 = float(input("Enter second number: "))
+        if op == 0:
+            print("Exiting...")
+            break
 
-    if choice == '1':
-        print("Result:", num1 + num2)
-    elif choice == '2':
-        print("Result:", num1 - num2)
-    elif choice == '3':
-        print("Result:", num1 * num2)
-    elif choice == '4':
-        if num2 != 0:
-            print("Result:", num1 / num2)
+        if op in [1,2,3,4,5]:
+            x = float(input("Enter first number: "))
+            y = float(input("Enter second number: "))
+
+        if op == 1:
+            print("Result:", x + y)
+        elif op == 2:
+            print("Result:", x - y)
+        elif op == 3:
+            print("Result:", x * y)
+        elif op == 4:
+            if y == 0:
+                print("Error: Division by zero!")
+            else:
+                print("Result:", x / y)
+        elif op == 5:
+            print("Result:", math.pow(x, y))
+        elif op == 6:
+            x = float(input("Enter a number: "))
+            print("Result:", math.sqrt(x))
+        elif op == 7:
+            x = float(input("Enter angle in degrees: "))
+            print("Result:", math.sin(math.radians(x)))
+        elif op == 8:
+            x = float(input("Enter angle in degrees: "))
+            print("Result:", math.cos(math.radians(x)))
+        elif op == 9:
+            x = float(input("Enter angle in degrees: "))
+            print("Result:", math.tan(math.radians(x)))
+        elif op == 10:
+            x = float(input("Enter a number: "))
+            print("Result:", math.log10(x))
+        elif op == 11:
+            x = float(input("Enter a number: "))
+            print("Result:", math.log(x))
         else:
-            print("Error: Cannot divide by zero!")
-    else:
-        print("Invalid Input")
-
-calculator()
+            print("Invalid choice! Try again.")
